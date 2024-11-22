@@ -1,0 +1,64 @@
+{
+    "products": [
+      {
+        "header": "Produk Spesial",
+        "headerBg": "bg-gradient-to-r from-orange-500 to-red-500",
+        "provider": "Telkomsel",
+        "productName": "Combo Sakti 7GB",
+        "quota": 7,
+        "dateRange": 30,
+        "price": 32500,
+        "link": "/"
+      },
+      {
+        "header": "Produk Spesial",
+        "headerBg": "bg-gradient-to-r from-orange-500 to-red-500",
+        "provider": "Telkomsel",
+        "productName": "Super Seru 80GB",
+        "quota": 80,
+        "dateRange": 28,
+        "price": 100000,
+        "link": "/"
+      },
+      {
+        "header": "Murah Banget",
+        "headerBg": "bg-gradient-to-r from-cyan-500 to-blue-500",
+        "provider": "Telkomsel",
+        "productName": "Flash 1GB",
+        "quota": 1,
+        "dateRange": 30,
+        "price": 15000,
+        "link": "/"
+      },
+      {
+        "header": "Murah Banget",
+        "headerBg": "bg-gradient-to-r from-cyan-500 to-blue-500",
+        "provider": "Tri",
+        "productName": "Happy 42GB",
+        "quota": 42,
+        "dateRange": 30,
+        "price": 90500,
+        "link": "/"
+      },
+      {
+        "header": "Murah Banget",
+        "headerBg": "bg-gradient-to-r from-cyan-500 to-blue-500",
+        "provider": "Tri",
+        "productName": "Mix Small 2.5GB",
+        "quota": 2.5,
+        "dateRange": 1,
+        "price": 5000,
+        "link": "/"
+      },
+      {
+        "header": "Murah Banget",
+        "headerBg": "bg-gradient-to-r from-cyan-500 to-blue-500",
+        "provider": "Smartfren",
+        "productName": "KUOTA 11 GB",
+        "quota": 11,
+        "dateRange": 30,
+        "price": 15500,
+        "link": "/"
+      }
+    ]
+  }
