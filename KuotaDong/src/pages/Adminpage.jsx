@@ -7,7 +7,6 @@ const Admin = () => {
     const [updatedOrders, setUpdatedOrders] = useState([]);
 
     useEffect(() => {
-        // Sync the fetched orders with local state for updates
         if (orders.length) setUpdatedOrders(orders);
     }, [orders]);
 
@@ -15,7 +14,6 @@ const Admin = () => {
         document.title = 'KuotaDong | Admin';
     }, []);
 
-    // Function to handle status update
     const handleStatusChange = (orderId, newStatus) => {
         fetch(`http://localhost:3000/orders/${Number(orderId)}`, {
             method: 'PUT',
@@ -26,7 +24,6 @@ const Admin = () => {
         })
             .then(response => response.json())
             .then(updatedOrder => {
-                // Update the local state to reflect the status change
                 setUpdatedOrders(prevOrders =>
                     prevOrders.map(order =>
                         order.id === updatedOrder.id ? { ...order, status: updatedOrder.status } : order
@@ -36,13 +33,11 @@ const Admin = () => {
             .catch(error => console.error("Error updating order status:", error));
     };
 
-    // Function to handle order deletion
     const handleDelete = (orderId) => {
         fetch(`http://localhost:3000/orders/${orderId}`, {
             method: 'DELETE',
         })
             .then(() => {
-                // Remove the order from local state
                 setUpdatedOrders(prevOrders => prevOrders.filter(order => order.id !== orderId));
             })
             .catch(error => console.error("Error deleting order:", error));

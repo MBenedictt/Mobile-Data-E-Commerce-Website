@@ -31,7 +31,7 @@ const ProductCard = ({
         e.preventDefault();
 
         const newOrder = {
-            id: Date.now(),
+            id: Date.now().toString(),
             username,
             notelp,
             paketdata: productName,
