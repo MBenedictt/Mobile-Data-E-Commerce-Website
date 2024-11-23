@@ -8,6 +8,7 @@ import PaketDataPage from './pages/PaketDataPage';
 import Login from './pages/Loginpage';
 import Register from './pages/Registerpage';
 import Admin from './pages/Adminpage';
+import NotFoundPage from './pages/404page';
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,11 @@ const router = createBrowserRouter([
   {
     path: '/admin',
     element: <Admin />,
-  }
+  },
+  {
+    path: '*',
+    element: <NotFoundPage />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

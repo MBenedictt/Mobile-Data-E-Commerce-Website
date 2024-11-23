@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Footer from "../components/Footer";
 import ProductCard from "../components/ProductCard";
 import useFetch from "../hooks/UseFetch";
+import Loader from "../components/Loader";
 
 const paketProvider = [
     { id: "provider1", label: "Telkomsel" },
@@ -110,7 +111,7 @@ const PaketData = () => {
     const toggleFilter = () => setIsFilterOpen(!isFilterOpen);
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <Loader />;
     }
 
     // Pagination Logic

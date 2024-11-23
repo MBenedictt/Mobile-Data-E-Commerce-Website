@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 import useFetch from "../hooks/UseFetch";
 import Footer from "../components/Footer";
+import Loader from "../components/Loader";
 
 const Home = () => {
 
@@ -81,7 +82,7 @@ const Home = () => {
         (product) => product.provider === activeProvider
     );
 
-    if (loading) return <div>Loading...</div>;
+    if (loading) return <Loader />;
 
     return (
         <div>

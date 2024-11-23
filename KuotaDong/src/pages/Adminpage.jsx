@@ -14,33 +14,59 @@ const Admin = () => {
         document.title = 'KuotaDong | Admin';
     }, []);
 
-    const handleStatusChange = (orderId, newStatus) => {
-        fetch(`http://localhost:3000/orders/${Number(orderId)}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ status: newStatus }),
-        })
-            .then(response => response.json())
-            .then(updatedOrder => {
-                setUpdatedOrders(prevOrders =>
-                    prevOrders.map(order =>
-                        order.id === updatedOrder.id ? { ...order, status: updatedOrder.status } : order
-                    )
-                );
-            })
-            .catch(error => console.error("Error updating order status:", error));
+    const handleStatusChange = async (orderId, newStatus) => {
+        try {
+            const response = await fetch(`http://localhost:3000/orders/${orderId}`);
+            if (!response.ok) {
+                throw new Error("Failed to fetch the order.");
+            }
+
+            const order = await response.json();
+
+            const updatedOrder = {
+                ...order,
+                status: newStatus,
+            };
+
+            const updateResponse = await fetch(`http://localhost:3000/orders/${orderId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(updatedOrder),
+            });
+
+            if (!updateResponse.ok) {
+                throw new Error("Failed to update the order.");
+            }
+
+            const updatedOrderResponse = await updateResponse.json();
+
+            setUpdatedOrders((prevOrders) =>
+                prevOrders.map((order) =>
+                    order.id === updatedOrderResponse.id ? updatedOrderResponse : order
+                )
+            );
+        } catch (error) {
+            console.error("Error updating order status:", error);
+        }
     };
 
-    const handleDelete = (orderId) => {
-        fetch(`http://localhost:3000/orders/${orderId}`, {
-            method: 'DELETE',
-        })
-            .then(() => {
-                setUpdatedOrders(prevOrders => prevOrders.filter(order => order.id !== orderId));
-            })
-            .catch(error => console.error("Error deleting order:", error));
+    const handleDelete = async (orderId) => {
+        try {
+            const response = await fetch(`http://localhost:3000/orders/${orderId}`, {
+                method: 'DELETE',
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to delete the order.");
+            }
+
+            // Remove the deleted order from local state
+            setUpdatedOrders((prevOrders) => prevOrders.filter((order) => order.id !== orderId));
+        } catch (error) {
+            console.error("Error deleting order:", error);
+        }
     };
 
     return (
