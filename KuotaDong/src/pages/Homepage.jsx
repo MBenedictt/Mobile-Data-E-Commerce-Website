@@ -75,7 +75,7 @@ const Home = () => {
     const providers = ['Telkomsel', 'Tri', 'XL', 'Axis', 'Indosat', 'Smartfren'];
     const [activeProvider, setActiveProvider] = useState(providers[0]);
 
-    const { products, loading } = useFetch();
+    const { data: products, loading } = useFetch("http://localhost:3000/products");
 
     const filteredProducts = products.filter(
         (product) => product.provider === activeProvider
@@ -237,7 +237,6 @@ const Home = () => {
                             quota={product.quota}
                             dateRange={product.dateRange}
                             price={product.price}
-                            link={product.link}
                         />
                     ))}
                 </div>

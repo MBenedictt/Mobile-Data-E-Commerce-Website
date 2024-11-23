@@ -1,23 +1,23 @@
 import { useState, useEffect } from "react";
 
-const useFetch = () => {
-    const [products, setProducts] = useState([]);
+const useFetch = (url) => {
+    const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("http://localhost:3000/products")
+        fetch(url)
             .then((response) => response.json())
             .then((data) => {
-                setProducts(data);
+                setData(data);
                 setLoading(false);
             })
             .catch((error) => {
                 console.error("Error fetching data:", error);
                 setLoading(false);
             });
-    }, []);
+    }, [url]);
 
-    return { products, loading };
+    return { data, loading };
 };
 
 export default useFetch;

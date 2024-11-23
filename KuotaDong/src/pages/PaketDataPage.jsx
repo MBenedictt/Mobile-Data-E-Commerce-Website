@@ -35,7 +35,7 @@ const PaketData = () => {
         document.title = 'KuotaDong | Paket Data';
     }, []);
 
-    const { products, loading } = useFetch();
+    const { data: products, loading } = useFetch("http://localhost:3000/products");
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 9;
 
@@ -196,7 +196,6 @@ const PaketData = () => {
                                     quota={product.quota}
                                     dateRange={product.dateRange}
                                     price={product.price}
-                                    link={product.link}
                                 />
                             ))}
                         </div>
@@ -222,57 +221,8 @@ const PaketData = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
 
-            {/* Responsive filter */}
-            {/* <div
-                className={`fixed top-0 left-0 z-[100] h-screen shadow-xl p-4 bg-white w-80 transition-transform ${isFilterOpen ? 'translate-x-0' : '-translate-x-full'
-                    }`}
-            >
-                <button
-                    type="button"
-                    onClick={toggleFilter}
-                    className="text-black bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-xl w-8 h-8 absolute top-2.5 right-2.5 flex items-center justify-center"
-                >
-                    <FontAwesomeIcon icon={faX} />
-                </button>
-                <h1 className="font-bold text-xl pb-4 border-b border-neutral-300">Filters</h1>
-                <div>
-                    <h1 className="text-md py-3">Provider</h1>
-                    <div className="grid grid-cols-1 max-md:grid-cols-2 gap-3">
-                        {paketProvider.map((provider) => (
-                            <CheckboxOption
-                                key={provider.id}
-                                id={provider.id}
-                                label={provider.label}
-                                onChange={() => handleCheckboxChange("provider", provider.label)}
-                            />
-                        ))}
-                    </div>
-                    <h1 className="text-md py-3">Kuota</h1>
-                    <div className="grid grid-cols-1 max-md:grid-cols-2 gap-3">
-                        {paketQuota.map((quota) => (
-                            <CheckboxOption
-                                key={quota.id}
-                                id={quota.id}
-                                label={quota.label}
-                                onChange={() => handleCheckboxChange("quota", quota.label)}
-                            />
-                        ))}
-                    </div>
-                    <h1 className="text-md py-3">Masa Berlaku</h1>
-                    <div className="grid grid-cols-1 max-md:grid-cols-2 gap-3">
-                        {paketDateRange.map((daterange) => (
-                            <CheckboxOption
-                                key={daterange.id}
-                                id={daterange.id}
-                                label={daterange.label}
-                                onChange={() => handleCheckboxChange("dateRange", daterange.label)}
-                            />
-                        ))}
-                    </div>
-                </div>
-            </div> */}
+            <Footer />
         </div>
     );
 };

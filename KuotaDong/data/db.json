@@ -1,258 +1,254 @@
 {
+  "users": [
+    {
+      "id": "3d57",
+      "username": "admin",
+      "password": "123"
+    }
+  ],
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "header": "Produk Spesial",
       "provider": "Telkomsel",
       "productName": "Combo Sakti 7GB",
       "quota": 7,
       "dateRange": 30,
-      "price": 32500,
-      "link": "/"
+      "price": 32500
     },
     {
-      "id": 2,
+      "id": "2",
       "header": "Produk Spesial",
       "provider": "Telkomsel",
       "productName": "Super Seru 80GB",
       "quota": 80,
       "dateRange": 28,
-      "price": 100000,
-      "link": "/"
+      "price": 100000
     },
     {
-      "id": 3,
+      "id": "3",
       "header": "Murah Banget",
       "provider": "Telkomsel",
       "productName": "Flash 1GB",
       "quota": 1,
       "dateRange": 30,
-      "price": 15000,
-      "link": "/"
+      "price": 15000
     },
     {
-      "id": 4,
+      "id": "4",
       "header": "Murah Banget",
       "provider": "Tri",
       "productName": "Happy 42GB",
       "quota": 42,
       "dateRange": 30,
-      "price": 90500,
-      "link": "/"
+      "price": 90500
     },
     {
-      "id": 5,
+      "id": "5",
       "header": "Murah Banget",
       "provider": "Tri",
       "productName": "Mix Small 2.5GB",
       "quota": 2.5,
       "dateRange": 1,
-      "price": 5000,
-      "link": "/"
+      "price": 5000
     },
     {
-      "id": 6,
+      "id": "6",
       "header": "Murah Banget",
-     "provider": "Smartfren",
+      "provider": "Smartfren",
       "productName": "KUOTA 11 GB",
       "quota": 11,
       "dateRange": 30,
-      "price": 15500,
-      "link": "/"
+      "price": 15500
     },
     {
-      "id": 7,
+      "id": "7",
       "header": "Super Hemat",
       "provider": "XL",
       "productName": "Xtra Combo 20GB",
       "quota": 20,
       "dateRange": 30,
-      "price": 75000,
-      "link": "/"
+      "price": 75000
     },
     {
-      "id": 8,
+      "id": "8",
       "header": "Super Hemat",
       "provider": "XL",
       "productName": "Xtra Kuota 3GB",
       "quota": 3,
       "dateRange": 7,
-      "price": 15000,
-      "link": "/"
+      "price": 15000
     },
     {
-      "id": 9,
+      "id": "9",
       "header": "Paket Ngebut",
-
       "provider": "Axis",
       "productName": "Bronet 24 Jam 1.5GB",
       "quota": 1.5,
       "dateRange": 10,
-      "price": 8900,
-      "link": "/"
+      "price": 8900
     },
     {
-      "id": 10,
+      "id": "10",
       "header": "Paket Ngebut",
-
       "provider": "Axis",
       "productName": "Owsem 10GB",
       "quota": 10,
       "dateRange": 30,
-      "price": 44000,
-      "link": "/"
+      "price": 44000
     },
     {
-      "id": 11,
+      "id": "11",
       "header": "Paket Kuat",
       "provider": "Indosat",
       "productName": "Freedom Combo 14GB",
       "quota": 14,
       "dateRange": 30,
-      "price": 60000,
-      "link": "/"
+      "price": 60000
     },
     {
-      "id": 12,
+      "id": "12",
       "header": "Paket Kuat",
       "provider": "Indosat",
       "productName": "Yellow 1GB",
       "quota": 1,
       "dateRange": 1,
-      "price": 2500,
-      "link": "/"
+      "price": 2500
     },
     {
-      "id": 13,
+      "id": "13",
       "header": "Best Seller",
       "provider": "Telkomsel",
       "productName": "OMG! 15GB",
       "quota": 15,
       "dateRange": 30,
-      "price": 75000,
-      "link": "/"
+      "price": 75000
     },
     {
-      "id": 14,
+      "id": "14",
       "header": "Paket Murah",
       "provider": "Telkomsel",
       "productName": "Internet Max 4.5GB",
       "quota": 4.5,
       "dateRange": 30,
-      "price": 25000,
-      "link": "/"
+      "price": 25000
     },
     {
-      "id": 15,
+      "id": "15",
       "header": "Spesial Malam",
       "provider": "Telkomsel",
       "productName": "Midnight 10GB",
       "quota": 10,
       "dateRange": 7,
-      "price": 20000,
-      "link": "/"
+      "price": 20000
     },
     {
-      "id": 16,
+      "id": "16",
       "header": "Paket Harian",
       "provider": "XL",
       "productName": "Xtra Kuota 1.5GB",
       "quota": 1.5,
       "dateRange": 1,
-      "price": 5000,
-      "link": "/"
+      "price": 5000
     },
     {
-      "id": 17,
+      "id": "17",
       "header": "Xtra Spesial",
       "provider": "XL",
       "productName": "Xtra Combo VIP 40GB",
       "quota": 40,
       "dateRange": 30,
-      "price": 110000,
-      "link": "/"
+      "price": 110000
     },
     {
-      "id": 18,
+      "id": "18",
       "header": "Hemat Banget",
-
       "provider": "Axis",
       "productName": "Booster 5GB",
       "quota": 5,
       "dateRange": 14,
-      "price": 20000,
-      "link": "/"
+      "price": 20000
     },
     {
-      "id": 19,
+      "id": "19",
       "header": "Super Irit",
-
       "provider": "Axis",
       "productName": "Bronet 2GB",
       "quota": 2,
       "dateRange": 7,
-      "price": 10000,
-      "link": "/"
+      "price": 10000
     },
     {
-      "id": 20,
+      "id": "20",
       "header": "Unlimited Spesial",
       "provider": "Indosat",
       "productName": "Unlimited 30GB",
       "quota": 30,
       "dateRange": 30,
-      "price": 90000,
-      "link": "/"
+      "price": 90000
     },
     {
-      "id": 21,
+      "id": "21",
       "header": "Paket Murah",
       "provider": "Indosat",
       "productName": "Mini 2GB",
       "quota": 2,
       "dateRange": 14,
-      "price": 10000,
-      "link": "/"
+      "price": 10000
     },
     {
-      "id": 22,
+      "id": "22",
       "header": "Smart Choice",
       "provider": "Smartfren",
       "productName": "Kuota Nonstop 30GB",
       "quota": 30,
       "dateRange": 30,
-      "price": 75000,
-      "link": "/"
+      "price": 75000
     },
     {
-      "id": 23,
+      "id": "23",
       "header": "Spesial Unlimited",
       "provider": "Smartfren",
       "productName": "Unlimited Lite",
       "quota": 20,
       "dateRange": 28,
-      "price": 60000,
-      "link": "/"
+      "price": 60000
     },
     {
-      "id": 24,
+      "id": "24",
       "header": "Unlimited Malam",
       "provider": "Smartfren",
       "productName": "Unlimited Malam 12GB",
       "quota": 12,
       "dateRange": 30,
-      "price": 35000,
-      "link": "/"
+      "price": 35000
     },
     {
-      "id": 25,
+      "id": "25",
       "header": "Paket Murah",
       "provider": "Tri",
       "productName": "Happy 8GB",
       "quota": 8,
       "dateRange": 30,
-      "price": 35000,
-      "link": "/"
+      "price": 35000
+    }
+  ],
+  "orders": [
+    {
+      "id": "1732376360726",
+      "username": "Thomas Shelby",
+      "notelp": "08123456789",
+      "paketdata": "Combo Sakti 7GB",
+      "bukti": "/assets/img/bukti.png",
+      "status": "Belum Validasi"
+    },
+    {
+      "id": "1732376369014",
+      "username": "Azizi Asadel",
+      "notelp": "081818188181",
+      "paketdata": "Happy 42GB",
+      "bukti": "/assets/img/bukti.png",
+      "status": "Belum Validasi"
     }
   ]
 }
