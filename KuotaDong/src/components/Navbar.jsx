@@ -24,14 +24,14 @@ const Navbar = () => {
                     </Link>
                 </li>
                 <li className="font-semibold max-md:hidden">
-                    <Link to="/paketdata" className="relative group flex">
+                    <Link to="/paket-data" className="relative group flex">
                         <span className="group-hover:after:w-full after:w-0 after:h-0.5 after:bg-black after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-300">
                             Beli Paket Data
                         </span>
                     </Link>
                 </li>
                 <li className="font-semibold text-neutral-400 hover:text-neutral-600 transition duration-200 max-md:hidden">
-                    <Link to="/" className="flex items-center">
+                    <Link to="/login" className="flex items-center">
                         <span className="mr-3 px-2 py-1 rounded bg-neutral-100 hover:bg-neutral-200">
                             <FontAwesomeIcon icon={faUser} />
                         </span>
@@ -57,7 +57,7 @@ const Navbar = () => {
                 <div className='flex flex-col justify-evenly h-[90%]'>
                     <ul className='flex flex-col items-center'>
                         <li className="font-medium text-2xl py-4">
-                            <Link to="/" className="relative group flex w-fit">
+                            <Link to="/home" className="relative group flex w-fit">
                                 <span className="group-hover:after:w-full after:w-0 after:h-0.5 after:bg-black after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-300">
                                     Home
                                 </span>
@@ -73,7 +73,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className='flex justify-center items-center border-t-2 font-semibold text-neutral-400 hover:text-neutral-600 transition duration-200 pt-5'>
-                    <Link to="/" className="flex items-center text-xl">
+                    <Link to="/login" className="flex items-center text-xl">
                         <span className="mr-3 px-2 py-1 rounded bg-neutral-100 hover:bg-neutral-200">
                             <FontAwesomeIcon icon={faUser} />
                         </span>

@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import Navbar from "../components/Navbar"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRightLong, faChevronDown, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 import useFetch from "../hooks/UseFetch";
+import Footer from "../components/Footer";
 
 const Home = () => {
 
@@ -12,6 +13,7 @@ const Home = () => {
         document.title = 'KuotaDong | Homepage';
     }, []);
 
+    // Search Filter Logic
     const [selectedProvider, setselectedProvider] = useState('Provider');
     const [selectedQuota, setSelectedQuota] = useState('Kuota');
     const [selectedDate, setSelectedDate] = useState('Masa Berlaku');
@@ -69,11 +71,15 @@ const Home = () => {
         }
     };
 
+    // Paket Terbaik Logic
     const providers = ['Telkomsel', 'Tri', 'XL', 'Axis', 'Indosat', 'Smartfren'];
     const [activeProvider, setActiveProvider] = useState(providers[0]);
 
-    const { loading, filterByProvider } = useFetch();
-    const filteredProducts = filterByProvider(activeProvider);
+    const { products, loading } = useFetch();
+
+    const filteredProducts = products.filter(
+        (product) => product.provider === activeProvider
+    );
 
     if (loading) return <div>Loading...</div>;
 
@@ -136,7 +142,7 @@ const Home = () => {
                                             </form>
                                             <p className="w-full border-b-2 border-slate-300 text-[12px] font-medium mt-5 pb-1">Pilih Jumlah Kuota</p>
                                             <ul>
-                                                {['50 GB Keatas', '30 GB - 50 GB', '10 GB - 20 GB', '5 GB - 10 GB', '1 GB - 5 GB', 'Dibawah 1 GB'].map(quotaRange => (
+                                                {['50 GB Keatas', '30 GB - 50 GB', '10 GB - 20 GB', '5 GB - 10 GB', '1 GB - 5 GB'].map(quotaRange => (
                                                     <li
                                                         key={quotaRange}
                                                         onClick={() => handleSelect('quota', quotaRange)}
@@ -166,7 +172,7 @@ const Home = () => {
                                             </form>
                                             <p className="w-full border-b-2 border-slate-300 text-[12px] font-medium mt-5 pb-1">Pilih Masa Berlaku</p>
                                             <ul>
-                                                {['Seumur Hidup', '30 Hari', '10 Hari', '7 Hari', '1 Hari'].map(dateRange => (
+                                                {['30 Hari', '10 Hari', '7 Hari', '1 Hari'].map(dateRange => (
                                                     <li
                                                         key={dateRange}
                                                         onClick={() => handleSelect('date', dateRange)}
@@ -180,7 +186,7 @@ const Home = () => {
                                     )}
                                 </div>
                             </div>
-                            <Link to="/paket-data" className="bg-blue-600 text-white w-[140px] flex justify-evenly items-center px-2 py-2 ml-5 rounded hover:bg-blue-700 max-[991px]:w-full max-[991px]:ml-0 max-[991px]:justify-center max-[991px]:mt-5">
+                            <Link to="/paket-data" className="bg-sky-500 text-white w-[140px] flex justify-evenly items-center px-2 py-2 ml-5 rounded hover:bg-sky-600 max-[991px]:w-full max-[991px]:ml-0 max-[991px]:justify-center max-[991px]:mt-5">
                                 <FontAwesomeIcon icon={faMagnifyingGlass} className="mr-2" />
                                 Cari Paket
                             </Link>
@@ -190,7 +196,7 @@ const Home = () => {
             </div>
 
             {/* Provider List */}
-            <div className="w-full py-[100px] max-md:py-[50px] px-[80px] max-lg:px-10 max-md:px-3">
+            <div className="w-full py-[50px] px-[80px] max-lg:px-10 max-md:px-3">
                 <div className="w-full flex justify-between items-center max-md:grid max-md:grid-cols-2 max-md:gap-5 max-md:place-items-center">
                     <img src="/assets/img/telkomsel.webp" alt="telkomsel" className="w-[200px] max-lg:w-[150px] max-md:w-[100px] opacity-50" />
                     <img src="/assets/img/indosat.png" alt="indosat" className="w-[180px] max-lg:w-[150px] max-md:w-[100px] opacity-50" />
@@ -199,9 +205,9 @@ const Home = () => {
                 </div>
             </div>
 
-            {/* Promo Section */}
-            <div className="w-full py-[10px] px-[80px] max-lg:px-10 max-md:px-7 py-5">
-                <h1 className="text-4xl max-md:text-3xl font-bold w-full pb-5 text-center">Promo Terbaik</h1>
+            {/* Paket Section */}
+            <div className="w-full py-[10px] px-[80px] max-lg:px-10 max-md:px-7">
+                <h1 className="text-4xl max-md:text-3xl font-bold w-full pb-5 text-center">Paket Terbaik</h1>
                 <div className="flex flex-wrap gap-[60px] max-md:gap-x-10 max-md:gap-y-3 justify-center items-center py-2">
                     {providers.map((provider, index) => (
                         <div
@@ -221,12 +227,11 @@ const Home = () => {
                         </div>
                     ))}
                 </div>
-                <div className="grid grid-cols-3 max-lg:grid-cols-1 gap-5 py-7">
+                <div className="grid grid-cols-3 max-lg:grid-cols-1 gap-5 py-7 border-t-2 border-slate-200">
                     {filteredProducts.slice(0, 3).map((product, index) => (
                         <ProductCard
                             key={index}
                             header={product.header}
-                            headerBg={product.headerBg}
                             provider={product.provider}
                             productName={product.productName}
                             quota={product.quota}
@@ -236,7 +241,43 @@ const Home = () => {
                         />
                     ))}
                 </div>
+                <div className="flex justify-center items center mt-5">
+                    <Link to="/paket-data" className="px-5 py-2 rounded-xl font-medium text-lg bg-sky-400 text-white hover:bg-sky-500 transition duration-200">Lihat Semua <i><FontAwesomeIcon icon={faArrowRightLong} className="ml-2" /></i></Link>
+                </div>
             </div>
+
+            {/* Tutorial Section */}
+            <div className="w-full py-[60px] px-[80px] max-lg:px-10 max-md:px-7 bg-sky-50 mt-10">
+                <h1 className="text-3xl max-md:text-2xl font-semibold w-full pb-10 text-center">Cara Membeli Paket Data</h1>
+                <div className="grid grid-cols-4 max-lg:grid-cols-2 max-md:grid-cols-1 gap-5 mb-5">
+                    <div className="flex flex-col items-center mt-5">
+                        <img src="/assets/img/step1.svg" alt="step-1" className="w-[120px] max-xl:w-[100px] max-lg:w-[80px]" />
+                        <div className="w-[30px] h-[30px] flex justify-center items-center rounded-full bg-sky-400 text-white font-bold text-lg mt-5">1</div>
+                        <h2 className="font-semibold text-xl mt-3 text-center">Pilih Paket</h2>
+                        <p className="text-center text-[14px] mt-2 text-gray-600 text-light">Pilih paket sesuai kebutuhan anda lalu klik beli. Anda akan diarahkan ke halaman pembayaran.</p>
+                    </div>
+                    <div className="flex flex-col items-center mt-5">
+                        <img src="/assets/img/step2.svg" alt="step-1" className="w-[120px] max-xl:w-[100px] max-lg:w-[80px]" />
+                        <div className="w-[30px] h-[30px] flex justify-center items-center rounded-full bg-sky-400 text-white font-bold text-lg mt-5">2</div>
+                        <h2 className="font-semibold text-xl mt-3 text-center">Masukkan Nomor HP</h2>
+                        <p className="text-center text-[14px] mt-2 text-gray-600 text-light">Masukkan nomor HP Anda. Lakukan pengecekan dan jangan sampai salah memasukkan nomor HP anda.</p>
+                    </div>
+                    <div className="flex flex-col items-center mt-5">
+                        <img src="/assets/img/step3.svg" alt="step-1" className="w-[120px] max-xl:w-[100px] max-lg:w-[80px]" />
+                        <div className="w-[30px] h-[30px] flex justify-center items-center rounded-full bg-sky-400 text-white font-bold text-lg mt-5">3</div>
+                        <h2 className="font-semibold text-xl mt-3 text-center">Bayar Pesanan</h2>
+                        <p className="text-center text-[14px] mt-2 text-gray-600 text-light">Lakukan pembayaran dan unggah bukti transaksi anda sehingga kami dapat memvalidasi pembayaran anda.</p>
+                    </div>
+                    <div className="flex flex-col items-center mt-5">
+                        <img src="/assets/img/step4.svg" alt="step-1" className="w-[120px] max-xl:w-[100px] max-lg:w-[80px]" />
+                        <div className="w-[30px] h-[30px] flex justify-center items-center rounded-full bg-sky-400 text-white font-bold text-lg mt-5">4</div>
+                        <h2 className="font-semibold text-xl mt-3 text-center">Tunggu Validasi</h2>
+                        <p className="text-center text-[14px] mt-2 text-gray-600 text-light">Tunggu kami memvalidasi pembayaran anda. Jika sudah tervalidasi, anda dapat menikmati paket data anda.</p>
+                    </div>
+                </div>
+            </div>
+
+            <Footer />
         </div>
 
     )

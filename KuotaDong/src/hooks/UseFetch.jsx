@@ -17,11 +17,7 @@ const useFetch = () => {
             });
     }, []);
 
-    const filterByProvider = (provider) => {
-        return products.filter((product) => product.provider === provider);
-    };
-
-    return { products, loading, filterByProvider };
+    return { products, loading };
 };
 
 export default useFetch;

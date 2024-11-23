@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 const ProductCard = ({
     header,
-    headerBg,
     provider,
     productName,
     quota,
@@ -24,7 +23,7 @@ const ProductCard = ({
     return (
         <div className="w-full h-[300px] bg-[url('/assets/img/card-bg.jpg')] bg-cover rounded-lg shadow-lg p-5 flex flex-col justify-between">
             <div>
-                <p className={`py-2 px-4 ${headerBg} w-fit rounded-tl-lg rounded-br-lg text-white font-bold`}>
+                <p className="py-2 px-4 w-fit rounded-tl-lg rounded-br-lg text-white font-bold bg-gradient-to-r from-cyan-500 to-blue-500">
                     {header}
                 </p>
                 <h2 className="mt-5 text-gray-500">{provider}</h2>
